@@ -18,7 +18,7 @@ create_NuevoMenu(compra){
 
 read_Menu(){
 this.user= this.afauth.auth.currentUser.uid
-console.log(this.user+"-------")
+//con el where identificamos el campo userid que metimos en la creación y sólo del usuario que está logueado
   return this.firestore.collection('Menu',ref => ref.where("userid","==",this.user)).snapshotChanges()
 }
 //cambiamos

@@ -41,7 +41,7 @@ this.authservice.logout();
         return {
           id: e.payload.doc.id,
           isEdit: false,
-          userid:e.payload.doc.data()['userid'],
+          userid:e.payload.doc.data()['userid'], //leemos el userid
           Nombre: e.payload.doc.data()['Consumidor'],
           Dinero: e.payload.doc.data()['Dinero'],
           Edificio: e.payload.doc.data()['Edificio'],
@@ -53,7 +53,7 @@ this.authservice.logout();
           Donas: e.payload.doc.data()['Donas'],
           Emperador: e.payload.doc.data()['Emperador'],
           PrecioFinal: e.payload.doc.data()['Preciofinal'],
-          especificacion: e.payload.doc.data()['Especificación']
+          especificacion: e.payload.doc.data()['Especificacion']
 
         };
       })
@@ -65,7 +65,7 @@ this.authservice.logout();
   
   registrarcompra(){
     let compra = {};
-    compra ['userid']= this.AFauth.auth.currentUser.uid;
+    compra ['userid']= this.AFauth.auth.currentUser.uid; //metemos el userid del usuario logueado
     compra['Consumidor'] = this.Consumidor;
     compra['Dinero'] = this.Dinero;
     compra['Edificio'] = this.Edificio;
