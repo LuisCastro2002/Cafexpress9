@@ -53,7 +53,7 @@ this.authservice.logout();
           Donas: e.payload.doc.data()['Donas'],
           Emperador: e.payload.doc.data()['Emperador'],
           PrecioFinal: e.payload.doc.data()['Preciofinal'],
-          especificacion: e.payload.doc.data()['Especificacion']
+          especificacion: e.payload.doc.data()['Especificación']
 
         };
       })
