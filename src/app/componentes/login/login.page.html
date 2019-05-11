@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title color="primary" text-center type-bold>¡Bienvenido a Cafexpress!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img class="rodrigo" src="assets/rodrigo.jpg">
+  <ion-item>
+    <ion-label position="floating">Correo electrónico</ion-label>
+    <ion-input type="text" [(ngModel)]="email" name="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+  </ion-item>
+  <br>
+  <ion-button (click)="onSubmitLogin()" expand="block">Entrar</ion-button>
+  <br>
+  <p text-center routerLink='/registro'>Crear Cuenta</p>
+</ion-content>

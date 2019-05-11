@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title text-center>Menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid fixed>
+<ion-row>
+<ion-col>
+  <ion-item>
+ <ion-label>Brownies $10</ion-label>
+<ion-input type="number" placeholder="Número de brownies" [(ngModel)]="val1"></ion-input>
+</ion-item>
+</ion-col>
+<ion-col>
+<ion-item>
+<ion-label>Tostitos $15 </ion-label>
+        <ion-input type="number" placeholder="Número de Tostitos" [(ngModel)]="val2"> </ion-input>  
+ </ion-item>
+ </ion-col>
+ <ion-col>
+   <ion-item>
+  <ion-label>Mazapán $5</ion-label>
+  <ion-input type="number" placeholder="Número de Mazapanes" [(ngModel)]="val3"></ion-input>
+</ion-item>
+</ion-col>
+</ion-row>
+<ion-row>
+<ion-col>
+<ion-item>
+<ion-label>Oreo $18</ion-label>
+<ion-input type="number" placeholder="Número de oreos" [(ngModel)]="val4"></ion-input>
+</ion-item>
+</ion-col>
+<ion-col>
+<ion-item>
+  <ion-label>Donas $13</ion-label>
+  <ion-input type="number" placeholder="Número de Donas" [(ngModel)]="val5"></ion-input>
+</ion-item>
+</ion-col>
+<ion-col>
+<ion-item>
+<ion-label>Emperador $15</ion-label>
+<ion-input type="number" placeholder="Número de Emperador" [(ngModel)]="val6"></ion-input>
+</ion-item>
+</ion-col>
+</ion-row>
+<ion-row>
+  <ion-col>
+  <ion-item>
+    <ion-label position="floating" placeholder="Nombre">Nombre del Consumidor</ion-label>
+    <ion-input type="text" [(ngModel)]="Consumidor" name="Consumidor"></ion-input>
+  </ion-item>
+</ion-col>
+<ion-col>
+  <ion-item>
+    <ion-label position="floating">Edificio (Sólo número)</ion-label>
+    <ion-input type="text" [(ngModel)]="Edificio" name="Edificio"></ion-input>
+  </ion-item>
+  </ion-col>
+  <ion-col>
+  <ion-item>
+      <ion-label position="floating">Salón donde se recibirá el pedido (sólo número)</ion-label>
+      <ion-input type="text" [(ngModel)]="Salon" name="Salon"></ion-input>
+    </ion-item>
+    </ion-col>
+    </ion-row>
+    <ion-row>
+    <ion-col>
+    <ion-item>
+        <ion-label position="floating">Cantidad con la que pagará (pesos)</ion-label>
+        <ion-input type="text" [(ngModel)]="Dinero" name="Dinero"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+          <ion-label position="floating">Otra especificación</ion-label>
+          <ion-input type="text" [(ngModel)]="especificacion" name="especificacion"></ion-input>
+        </ion-item>
+    </ion-col>
+    </ion-row>
+<ion-button (click)="OnLogOut()" >Cerrar sesión</ion-button>
+<ion-button class="btn btn-primary" (click)='preciofinal(val1,val2,val3,val4,val5,val6)'>Precio Final</ion-button>
+<ion-item>
+<ion-label placeholder="apagar" [(ngModel)]="rta"> El precio final es: {{rta}}</ion-label>
+</ion-item>
+</ion-grid>
+<ion-card *ngFor="let item of compras">
+  <ion-card-header>
+    <ion-card-title>{{item.Nombre}} debe {{item.PrecioFinal}} pesos y pagará con {{item.Dinero}}</ion-card-title>
+    <ion-card-subtitle>Brownies: {{item.Brownies}}</ion-card-subtitle>
+    <ion-card-subtitle>Tostitos: {{item.Tostitos}}</ion-card-subtitle>
+    <ion-card-subtitle>Mazapanes {{item.Mazapan}}</ion-card-subtitle>
+    <ion-card-subtitle>Donas: {{item.Donas}}</ion-card-subtitle>
+    <ion-card-subtitle>Emperador: {{item.Emperador}}</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+  <ion-button shape="round" color="danger" size="small" (click)="RemoveCompra(item.id)">
+    <ion-icon size="small" slot="icon-only" name="trash"></ion-icon>
+  </ion-button>
+</ion-card-content>
+</ion-card>
+<ion-button (click)="registrarcompra()" expand="full">Registrar compra</ion-button>
+</ion-content>
